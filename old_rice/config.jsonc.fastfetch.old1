@@ -1,0 +1,171 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+
+  "logo": {
+    "type": "file",
+    "source": "${HOME}/.config/fastfetch/images/ascii.txt",
+    "padding": {
+      "top": 0,
+      "left": 0,
+      "right": 1
+    },
+    "position": "left"
+  },
+
+  "display": {
+    "separator": "- ",
+    "constants": [
+      "────────────────────────────────────┐",
+      "──────────────────────────────────────────────────────────┘"
+    ],
+    "key": {
+      "type": "string",
+      "paddingLeft": 0
+    }
+  },
+
+  "modules": [
+    {
+      "type": "custom",
+      "format": "┌─ {#1}Hardware Information{#} {$1}"
+    },
+    {
+      "type": "host",
+      "format": "{vendor} {name}",
+      "key": "│ 󰌢  Host ",
+      "keyColor": "cyan",
+      "outputColor": "cyan"
+    },
+    {
+      "type": "monitor",
+      "format": "{width}x{height} px @ {refresh-rate} Hz {physical-width}x{physical-height} mm ({ppi} ppi)",
+      "key": "│ ├ 󰍹  Res ",
+      "keyColor": "white",
+      "outputColor": "white"
+    },
+    {
+      "type": "cpu",
+      "format": "{name} ({cores-logical}) @ {freq-max}",
+      "key": "│ ├ 󰍛  Cpu ",
+      "keyColor": "yellow",
+      "outputColor": "yellow"
+    },
+    {
+      "type": "gpu",
+      "format": "{name} @ {frequency} [{type}]",
+      "key": "│ ├ 󰾲  Gpu ",
+      "keyColor": "green",
+      "outputColor": "green"
+    },
+    {
+      "type": "memory",
+      "format": "{used} / {total} ({percentage})",
+      "key": "│ ├   Memory ",
+      "keyColor": "magenta",
+      "outputColor": "magenta"
+    },
+    {
+      "type": "disk",
+      "format": "{size-used} / {size-total} ({size-percentage}) - {filesystem}",
+      "key": "│ └   Disk ",
+      "keyColor": "dim_",
+      "outputColor": "dim_"
+    },
+    {
+      "type": "custom",
+      "format": "└─{$2}"
+    },
+    {
+      "type": "custom",
+      "format": "┌─ {#1}Software Information{#} {$1}"
+    },
+    {
+      "type": "title",
+      "format": "{user-name-colored}@{host-name-colored}",
+      "key": "│   User ",
+      "keyColor": "blue",
+      "outputColor": "blue"
+    },
+    {
+      "type": "os",
+      "format": "{pretty-name} {arch}",
+      "key": "│ ├   OS ",
+      "keyColor": "white",
+      "outputColor": "white"
+    },
+    {
+      "type": "kernel",
+      "format": "{sysname} {release} ({page-size})",
+      "key": "│ ├   Kernel ",
+      "keyColor": "green",
+      "outputColor": "green"
+    },
+    {
+      "type": "packages",
+      "key": "│ ├ 󰏖  Packages ",
+      "keyColor": "magenta",
+      "outputColor": "magenta"
+    },
+    {
+      "type": "shell",
+      "format": "{pretty-name} {version}",
+      "key": "│ ├   Shell ",
+      "keyColor": "cyan",
+      "outputColor": "cyan"
+    },
+    {
+      "type": "uptime",
+      "format": "{hours} hours, {minutes} mins",
+      "key": "│ ├ 󱑎  Uptime ",
+      "keyColor": "yellow",
+      "outputColor": "yellow"
+    },
+    {
+      "type": "command",
+      "format": "{result}",
+      "key": "│ └ 󰃭  OS Age ",
+      "text": "birth_install=$(stat -c %W /etc); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days",
+      "keyColor": "dim_",
+      "outputColor": "dim_"
+    },
+    {
+      "type": "custom",
+      "format": "└─{$2}"
+    },
+    {
+      "type": "custom",
+      "format": "┌─ {#1}Current Linux Themes{#} {$1}"
+    },
+    {
+      "type": "wm",
+      "format": "{pretty-name} ({protocol-name})",
+      "key": "│ ◲  Wm ",
+      "keyColor": "green",
+      "outputColor": "green"
+    },
+    {
+      "type": "terminal",
+      "format": "{pretty-name} {version}",
+      "key": "│ ├   Terminal ",
+      "keyColor": "blue",
+      "outputColor": "blue"
+    },
+    {
+      "type": "terminalfont",
+      "format": "{combined}",
+      "key": "│ ├   Font ",
+      "keyColor": "red",
+      "outputColor": "red"
+    },
+    {
+      "type": "colors",
+      "key": "│ └   Color ",
+      "keyColor": "default",
+      "symbol": "circle"
+    },
+    {
+      "type": "custom",
+      "format": "└─{$2}"
+    }
+  ]
+}

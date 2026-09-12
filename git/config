@@ -1,0 +1,96 @@
+[user]
+  email = 325398462+dolosame@users.noreply.github.com
+  name = dolomisame
+  signingKey = ~/.ssh/dolomisame_github.pub
+
+[core]
+  commentChar = ":"
+  editor = nvim
+
+[commit]
+  cleanup = scissors
+  gpgSign = true
+  verbose = true
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  allowedSignersFile = ~/.ssh/allowed_signers
+
+[alias]
+  a = add
+  all = add -u
+  author = shortlog -sn
+  chk = checkout
+  br = branch -vv
+  cmit = commit
+  cmit-no-edit = commit --amend --no-edit
+  difw = diff --word-diff=color
+  lg = log --all --graph --pretty=format:'%C(bold yellow)%h%C(reset) - %C(dim white)%an%C(reset) - %C(bold green)(%ar)%C(reset) %C(auto)%D%C(reset) %n%C(white)%s%n%C(reset)'
+  nah = restore --staged .
+  nuke = clean -fd
+  st = status -s
+  stat = log -1 HEAD --stat
+  rewrite = reset HEAD~1 --mixed
+
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+
+[color "diff"]
+  meta = yellow bold
+  commit = green bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
+
+[color "status"]
+  added = green
+  changed = yellow
+  untracked = red
+
+[branch]
+  sort = -committerdate
+
+[column]
+  ui = auto
+
+[diff]
+  algorithm = histogram
+  colorMoved = plain
+  colorMovedWS = allow-indentation-change
+  mnemonicPrefix = true
+  renames = copies
+  submodule = log
+
+[init]
+  defaultBranch = main
+
+[log]
+  abbrevCommit = true
+  date = relative
+  decorate = auto
+
+[merge]
+  conflictstyle = zdiff3
+
+[pull]
+  rebase = true
+
+[push]
+  autoSetupRemote = true
+
+[rebase]
+  missingCommitsCheck = warn
+
+[status]
+  branch = true
+  showStash = true
+  submoduleSummary = true
+
+[tag]
+  gpgSign = true
+  sort = version:refname

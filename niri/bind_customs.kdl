@@ -1,0 +1,37 @@
+binds {
+    Mod+Shift+Slash { show-hotkey-overlay; }
+
+    Mod+T       hotkey-overlay-title="Open a Terminal: kitty"     { spawn "kitty"; }
+    Mod+D       hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock"  { spawn "swaylock"; }
+
+    //Fn + Fkey
+    XF86AudioRaiseVolume  allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
+    XF86AudioLowerVolume  allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+    XF86AudioMute         allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioMicMute      allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    //f5 not shown any key code on dell precision 7520 (useless key)
+    Scroll_Lock           allow-when-locked=true { spawn-sh "notify-send -u low 'Niri bind' 'will bind later for Fn+F6'"; }
+    //f7 toggle black screen hardware level on dell precision 7520
+    Mod+P                 allow-when-locked=true { spawn-sh "notify-send -u low 'Niri bind' 'will bind later for Fn+F8'"; }
+    XF86Search            allow-when-locked=true { spawn "fuzzel"; }
+    XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+
+    XF86Calculator        allow-when-locked=true { spawn "kitty" "--title" "Calculator" "bc"; }
+
+    XF86AudioPlay         allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioPause        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioStop         allow-when-locked=true { spawn-sh "playerctl stop"; }
+    XF86AudioPrev         allow-when-locked=true { spawn-sh "playerctl previous"; }
+    XF86AudioNext         allow-when-locked=true { spawn-sh "playerctl next"; }
+
+    Ctrl+Alt+Delete { spawn-sh "${HOME}/.config/scripts/fuzzel_logout.sh"; }
+
+    Mod+E          hotkey-overlay-title="Set dynamic cast window"           { spawn-sh "niri msg action set-dynamic-cast-window"; }
+    Mod+Ctrl+E     hotkey-overlay-title="Unset current dynamic cast window" { spawn-sh "niri msg action clear-dynamic-cast-target"; }
+    Mod+Ctrl+Print hotkey-overlay-title="Set dynamic cast workspace"        { spawn-sh "niri msg action set-dynamic-cast-monitor"; }
+
+    Mod+B hotkey-overlay-title="Wallpaper picker" { spawn-sh "${HOME}/.config/scripts/fuzzel_bg_picker.sh"; }
+    Alt+C { spawn-sh "niri msg pick-color | wl-copy"; }
+}

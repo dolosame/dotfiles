@@ -1,0 +1,47 @@
+"$schema" = "https://starship.rs/config-schema.json"
+
+add_newline = true
+continuation_prompt = '[](bold white)'
+
+format = """
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$custom \
+$character"""
+
+[directory]
+format = '[$path ]($style)'
+style = 'blue'
+
+[custom.kanji_char]
+command = 'bash ~/.config/scripts/starship_char.sh'
+when = true
+format = '$output'
+
+[character]
+format = '$symbol '
+success_symbol = '[](bold #73DACA)'
+error_symbol = '[](bold #F7768E)'
+
+[git_branch]
+format = '[$symbol]($style)'
+style = 'bright-black'
+symbol = ' $branch'
+
+[git_status]
+use_git_executable = true
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
+style = "cyan"
+conflicted = "​"
+untracked = "​"
+modified = "​"
+staged = "​"
+renamed = "​"
+deleted = "​"
+stashed = "≡"
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "bright-black"

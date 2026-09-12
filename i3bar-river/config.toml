@@ -1,0 +1,46 @@
+command = "i3status-rs"
+
+background = "#282828ff"
+color = "#ffffffff"
+
+font = "Mononoki Nerd Font Mono 12"
+
+height = 18
+margin_top = 0
+margin_bottom = 0
+margin_left = 0
+margin_right = 0
+
+separator = "#9a8a62ff"
+separator_width = 0.0
+
+tag_fg = "#d79921ff"
+tag_bg = "#282828ff"
+tag_focused_fg = "#1d2021ff"
+tag_focused_bg = "#689d68ff"
+tag_urgent_fg = "#282828ff"
+tag_urgent_bg = "#cc241dff"
+tag_inactive_fg = "#d79921ff"
+tag_inactive_bg = "#282828ff"
+tags_r = 0.0
+tags_padding = 10.0
+tags_margin = 0.0
+
+blocks_r = 0.0
+blocks_overlap = 0.0
+
+position = "top"
+layer = "top"
+
+invert_touchpad_scrolling = true
+
+hide_inactive_tags = true
+show_tags = true
+show_layout_name = true
+blend = true
+show_mode = true
+
+# start_hidden = true # config not work on niri
+
+[output.eDP-1]
+enable = true

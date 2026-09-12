@@ -1,0 +1,7 @@
+spawn-at-startup "~/.config/scripts/wayland_start.sh"
+spawn-at-startup "~/.config/scripts/battery_monitor.sh"
+
+//debug {
+//    render-drm-device "/dev/dri/renderD128"
+//    ignore-drm-device "/dev/dri/renderD129"
+//}

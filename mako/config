@@ -1,0 +1,31 @@
+font=Mononoki Nerd Font 12
+
+width=320
+height=100
+
+anchor=bottom-right
+layer=overlay
+
+border-size=3
+border-radius=10,10,0,10
+outer-margin=0,5,5,0
+margin=0,0,10,0
+padding=12,0,12,10
+
+default-timeout=30000
+icons=0
+sort=+time
+
+background-color=#F7F3EE
+text-color=#605A52
+border-color=#CACFDB
+progress-color=over #9B7896
+
+[urgency=low]
+border-color=#9E9A95
+
+[urgency=normal]
+border-color=#5A544C
+
+[urgency=high]
+border-color=#8F5652

@@ -1,0 +1,229 @@
+@define-color icon @module_bg_color;
+@define-color clock @module_bg_color;
+@define-color weather @module_bg_color;
+@define-color worksp @module_bg_color;
+@define-color backlight @module_bg_color;
+@define-color audio @module_bg_color;
+@define-color network @module_bg_color;
+@define-color cpu @module_bg_color;
+@define-color ram @module_bg_color;
+@define-color temp @module_bg_color;
+@define-color battery @module_bg_color;
+@define-color storage @module_bg_color;
+
+@define-color bar_color transparent;
+@define-color text_color #E8C2A1;
+@define-color border_color #FABD76;
+@define-color module_bg_color #4A505C;
+@define-color worksp_btn_color #8D9F9D;
+@define-color worksp_active_color #99CEC9;
+@define-color worksp_hover_color #8D9F9D;
+
+/* --------------- */
+/* define bar rule */
+/* --------------- */ 
+
+.modules-left,
+.modules-center,
+.modules-right {
+  margin: 0; /* top right bottom left */
+}
+
+window#waybar {
+  font: 16px "Mononoki Nerd Font";
+  background-color: @bar_color;
+  color: @text_color;
+}
+
+/* style for tooltip on hover on module */
+tooltip {
+  font: 16px "Mononoki Nerd Font";
+}
+
+tooltip box {
+  border-radius: 2px;
+}
+
+tooltip label {
+  font-size: 16px;
+}
+/* style for tooltip on hover on module */
+
+/* --------------------------------- */ 
+/* style that apply for most modules */
+/* --------------------------------- */
+
+#custom-icon,
+#clock,
+#custom-weather,
+#workspaces,
+#backlight,
+#pulseaudio,
+#wireplumber,
+#network,
+#cpu,
+#memory,
+#temperature,
+#battery,
+#disk {
+  border-radius: 2px;
+}
+
+#custom-icon,
+#clock,
+#custom-weather,
+#backlight,
+#pulseaudio,
+#wireplumber,
+#network,
+#cpu,
+#memory,
+#temperature,
+#battery,
+#disk {
+  color: @text_color;
+  padding: 4px 5px 4px 5px;
+}
+
+/* ------------------------------ */
+/* style only modules on the left */
+/* ------------------------------ */ 
+
+#custom-icon,
+#clock,
+#custom-weather {
+  margin: 0 5px 0 0;
+}
+
+#custom-icon {
+  background-color: @icon;
+  color: #4A505C;
+}
+
+/* custom menu from gtk */
+menu {
+  background: #4A505C;
+  border-radius: 2px;
+  color: @text_color;
+  padding: 0;
+}
+
+menuitem:hover {
+  background-color: #8D9F9D;
+  font-style: italic;
+}
+/* custom menu from gtk */
+
+#clock {
+  background-color: @clock;
+}
+
+#custom-weather {
+  background-color: @weather;
+}
+
+/* ---------------------------- */
+/* style only modules in middle */
+/* ---------------------------- */
+
+button:hover {
+  background: none;
+}
+
+#workspaces {
+  background-color: @worksp;
+}
+
+#workspaces button {
+  box-shadow: none;
+  border: none;
+  border-radius: 2px;
+  color: @worksp_btn_color;
+  padding: 0 5px;
+  text-shadow: none;
+}
+
+#workspaces button:hover {
+  border-radius: 2px;
+  transition: none;
+}
+
+#workspaces button.active {
+  color: @worksp_active_color;
+}
+
+#workspaces button.active:hover {
+  background-color: @worksp_hover_color;
+}
+
+/* #workspaces button.focused {
+}
+
+#workspaces button.focused:hover {
+} */
+
+#workspaces button.urgent {
+  background-color: salmon;
+}
+
+/* ------------------------------- */
+/* style only modules on the right */
+/* ------------------------------- */ 
+
+#backlight,
+#pulseaudio,
+#wireplumber,
+#network,
+#cpu,
+#memory,
+#temperature,
+#battery,
+#disk {
+  margin: 0 0 0 5px;
+}
+
+#backlight {
+  background-color: @backlight;
+}
+
+#pulseaudio,
+#wireplumber {
+  background-color: @audio;
+}
+
+#network {
+  background-color: @network;
+}
+
+#cpu {
+  background-color: @cpu;
+}
+
+#memory {
+  background-color: @ram;
+}
+
+#temperature {
+  background-color: @temp;
+}
+
+#battery {
+  background-color: @battery;
+}
+
+#battery.warning {
+  color: #D97C73;
+}
+
+#battery.critical {
+  color: #FB191A;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: @text_color;
+}
+
+#disk {
+  background-color: @storage;
+}

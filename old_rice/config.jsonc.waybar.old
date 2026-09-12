@@ -1,0 +1,139 @@
+{
+  "layer": "top",
+  "reload_style_on_change": true,
+
+  "modules-left": ["custom/icon", "custom/weather", "clock"],
+  "modules-center": ["niri/workspaces"],
+  "modules-right": ["backlight", "wireplumber", "network", "battery"],
+
+  "niri/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "active": "",
+      "default": ""
+    },
+    "disable-scroll": true
+  },
+
+  /* "custom/icon": {
+    "format": "<span bgcolor='#CACFDB' fgcolor='#605A52'> 󰘧 </span>",
+    "tooltip": false,
+    "menu": "on-click",
+    "menu-file": "$HOME/.config/waybar/power_menu.xml",
+    "menu-actions": {
+      "suspend": "loginctl suspend",
+      "shutdown": "loginctl poweroff",
+      "reboot": "loginctl reboot" 
+    }
+  }, */
+
+  "custom/icon": {
+    "format": "<span bgcolor='#CACFDB' fgcolor='#605A52'> 󰘷 </span>",
+    "tooltip": false,
+    "on-click": "wlogout -b 4 -s -n -c 40px -m 400px",
+    "on-click-right": "fuzzel"
+  },
+
+  "custom/weather": {
+    "exec": "curl -s -A 'Thanks for the module!' 'https://wttr.in/Vietnam?format=1'",
+    "interval": 14400,
+    "format": "{}",
+    "tooltip": false,
+    "return-type": "text"
+  },
+
+  "clock": {
+    "format": "Today is {:%A at <span bgcolor='#CACFDB' fgcolor='#605A52'> %I:%M %p </span>}",
+    "format-alt": "<span bgcolor='#CACFDB' fgcolor='#605A52'> 󰃰 </span> {:%b %d | %H:%M}",
+    "tooltip-format": "<big>Calendar</big>\n<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode"          : "month",
+      "mode-mon-col"  : 3,
+      "format": {
+        "months":     "<span color='#d3c6aa'><b>{}</b></span>",
+        "days":       "<span color='#e67e80'>{}</span>",
+        "weeks":      "<span color='#a7c080'><b>{:%W}</b></span>",
+        "weekdays":   "<span color='#7fbbb3'><b>{}</b></span>",
+        "today":      "<span color='#dbbc7f'><b><u>{}</u></b></span>"
+      }
+    }
+  },
+
+  "backlight": {
+    "format": "<span bgcolor='#CACFDB' fgcolor='#605A52'> {icon} </span> {percent}%",
+    "format-icons": ["󰃠", "󰃝", "󰃟", "󰃞"],
+    "scroll-step": 0.5,
+    "tooltip": false,
+    "on-click": "brightnessctl set +1%",
+    "on-click-right": "brightnessctl set 1%-",
+    "on-scroll-up": "brightnessctl set +1%",
+    "on-scroll-down": "brightnessctl set 1%-"
+  },
+
+  "wireplumber": {
+    "format": "<span bgcolor='#CACFDB' fgcolor='#605A52'> {icon} </span> {volume}%",
+    "format-bluetooth": "<span bgcolor='#CACFDB' fgcolor='#605A52'>  </span> {volume}%",
+    "format-muted": "<span bgcolor='#CACFDB' fgcolor='#605A52'> 󰝟 </span>",
+    "format-icons": {
+      "headphones": "",
+      "default": ["󰖀", "󰕾"]
+    },
+    "on-click": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+",
+    "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-",
+    "scroll-step": 0.5,
+    "tooltip": false
+  },
+
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": "<span bgcolor='#CACFDB' fgcolor='#605A52'> 󰘊 </span>",
+    "format-ethernet": "<span bgcolor='#CACFDB' fgcolor='#605A52'>  </span>",
+    "format-disconnected": "<span bgcolor='#CACFDB' fgcolor='#605A52'> 󰖪 </span>",
+    "tooltip-format": " {ifname}",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "no signal"
+  },
+
+  "cpu": {
+    "format": "<span bgcolor='#CACFDB' fgcolor='#605A52'>  </span> {usage}%",
+    "interval": 2
+  },
+
+  "memory": {
+    "format": "<span bgcolor='#CACFDB' fgcolor='#605A52'> 󰘚 </span> {used:0.1f}GB",
+    "tooltip-format": "{used:0.1f}/{total:0.1f} GB used",
+    "interval": 2
+  },
+
+  "temperature": {
+    "thermal-zone": 10,
+    "critical-threshold": 60,
+    "format": "<span bgcolor='#CACFDB' fgcolor='#605A52'>  </span> {temperatureC}°C",
+    "tooltip-format": " {temperatureF}°F"
+  },
+
+  "battery": {
+    "states": {
+      "good": 80,
+      "warning": 20,
+      "critical": 10
+    },
+    "format": "<span bgcolor='#CACFDB' fgcolor='#605A52'> {icon} </span> {capacity}%",
+    "format-charging": "<span bgcolor='#CACFDB' fgcolor='#605A52'> {icon} </span> {capacity}%",
+    "format-plugged": "<span bgcolor='#CACFDB' fgcolor='#605A52'> {icon} </span> {capacity}%",
+    "format-icons": {
+      "default": ["󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"],
+      "charging": ["󰢜","󰂆","󰂇","󰂈","󰢝","󰂉","󰢞","󰂊","󰂋","󰂅"],
+      "plugged": [""]
+    },
+    "interval": 60
+  },
+
+  "disk": {
+    "format": "<span bgcolor='#CACFDB' fgcolor='#605A52'>  </span> {percentage_used}%",
+    "tooltip-format": "{used} space used out of {total} on Nixos",
+    "path": "/"
+  }
+}

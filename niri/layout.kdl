@@ -1,0 +1,62 @@
+overview {
+    backdrop-color "#CEC1B1"
+    zoom 0.5
+
+    workspace-shadow {
+        softness 40
+        spread 10
+        offset x=0 y=10
+        color "#00000050"
+    }
+}
+
+layout {
+    background-color "#605A52"
+    center-focused-column "never"
+    gaps 6
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+    preset-window-heights {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.75
+        proportion 1.0
+    }
+
+    default-column-width { proportion 0.5; }
+
+    focus-ring {
+        width 4
+        active-color "#605A52"
+        inactive-color "#9E9A95"
+        urgent-color "#8F5652"
+    }
+
+    border {
+        off
+        width 3
+        active-color "#605A52"
+        inactive-color "#9E9A95"
+        urgent-color "#8F5652"
+    }
+
+    tab-indicator {
+        on
+        hide-when-single-tab
+        place-within-column
+        gap 1
+        width 4
+        length total-proportion=1.0
+        position "right"
+        gaps-between-tabs 2
+        corner-radius 8
+        active-color "#6B9494"
+        inactive-color "#A2BBBA"
+        urgent-color "#9A6763"
+    }
+}

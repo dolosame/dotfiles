@@ -1,0 +1,36 @@
+input {
+    keyboard {
+        xkb {
+          layout "us"
+        }
+        numlock
+    }
+
+    touchpad {
+        accel-speed 0.3
+        drag true
+        dwt
+        dwtp
+        natural-scroll
+        scroll-method "two-finger"
+        tap
+    }
+
+    mouse {
+        accel-speed 0.3
+        accel-profile "flat"
+        natural-scroll
+    }
+
+    trackpoint {
+        off
+        accel-speed 0.3
+        accel-profile "adaptive"
+        natural-scroll
+        scroll-method "on-button-down"
+        scroll-button 274
+    }
+
+    mod-key "Super"
+    mod-key-nested "Alt"
+}

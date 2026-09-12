@@ -1,0 +1,129 @@
+{
+  "layer": "top",
+  "position": "top",
+  "reload_style_on_change": true,
+
+  "modules-left": ["custom/powerbtn", "niri/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["group/control", "bluetooth", "network", "battery"],
+
+  "custom/powerbtn": {
+    "format": "󰤆",
+    "on-click": "wlogout -b 4 -s -n -c 40px -m 400px",
+    "tooltip": false
+  },
+
+  "clock": {
+    "format": "{:%b %d | %H:%M}",
+    "tooltip-format": "<big>Calendar</big>\n<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode"          : "month",
+      "mode-mon-col"  : 3,
+      "format": {
+        "months":     "<span color='#d3c6aa'><b>{}</b></span>",
+        "days":       "<span color='#e67e80'>{}</span>",
+        "weeks":      "<span color='#a7c080'><b>{:%W}</b></span>",
+        "weekdays":   "<span color='#7fbbb3'><b>{}</b></span>",
+        "today":      "<span color='#dbbc7f'><b><u>{}</u></b></span>"
+      }
+    }
+  },
+
+  "niri/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "active": "",
+      "default": ""
+    },
+    "disable-scroll": true
+  },
+
+  "group/control": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 600,
+      "children-class": "control-child",
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "custom/drawer-icon",
+      "backlight",
+      "wireplumber"
+    ] 
+  },
+
+  "custom/drawer-icon": {
+    "format": "",
+    "tooltip": false
+  },
+
+  "backlight": {
+    "format": "{icon}",
+    "format-icons": ["󰃞","󰃟","󰃝","󰃠"],
+    "on-click": "brightnessctl set +1%",
+    "on-click-right": "brightnessctl set 1%-",
+    "on-scroll-up": "brightnessctl set +1%",
+    "on-scroll-down": "brightnessctl set 1%-",
+    "scroll-step": 0.5,
+    "tooltip-format": "Brightness at {percent}%"
+  },
+
+  "wireplumber": {
+    "format": "{icon}",
+    "format-bluetooth": "",
+    "format-muted": "",
+    "format-icons": {
+      "headphones": "",
+      "headset": "",
+      "default": ["", "", ""]
+    },
+    "on-click": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+",
+    "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-",
+    "scroll-step": 0.5,
+    "tooltip-format": "Playing at {volume}%"
+  },
+
+  "bluetooth": {
+    "format": "",
+    "format-off": "󰂲",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱",
+    "format-no-controller": "",
+    "on-click": "kitty --title 'Bluetooth setting' bluetoothctl",
+    "tooltip-format": "Devices connected: {num_connections}"
+  },
+
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰀂",
+    "format-disconnected": "󰤮",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "on-click": "kitty --title 'Network setting' iwctl",
+    "tooltip-format": " {ifname}",
+    "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-disconnected": "Disconnected",
+    "interval": 10
+  },
+
+  "battery": {
+    "states": {
+      "good": 80,
+      "warning": 20,
+      "critical": 10
+    },
+    "format": "{icon}",
+    "format-charging": "{icon}",
+    "format-plugged": "",
+    "format-icons": {
+      "default": ["󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"],
+      "charging": ["󰢜","󰂆","󰂇","󰂈","󰢝","󰂉","󰢞","󰂊","󰂋","󰂅"]
+    },
+    "tooltip-format": "{power:>1.0f}W↓ {capacity}% ",
+    "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}%",
+    "tooltip-format-plugged": "{power:>1.0f}W↑ {capacity}%",
+    "interval": 60
+  }
+}

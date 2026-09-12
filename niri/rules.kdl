@@ -1,0 +1,39 @@
+window-rule {
+    geometry-corner-radius 0
+    clip-to-geometry true
+}
+
+window-rule {
+    match is-window-cast-target=true
+
+    focus-ring {
+        active-color "#AA5087"
+        inactive-color "#556995"
+    }
+
+    border {
+        inactive-color "#556995"
+    }
+
+    tab-indicator {
+        active-color "#AA5087"
+        inactive-color "#556995"
+    }
+}
+
+window-rule {
+    match app-id="chromium"
+    default-column-width { proportion 0.66667; }
+}
+
+window-rule {
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=10 y=10 relative-to="bottom-right"
+}
+
+window-rule {
+    match title="Calculator"
+    open-floating true
+    default-column-width { fixed 400; }
+    default-window-height { fixed 500; }
+}

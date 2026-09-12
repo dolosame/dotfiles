@@ -1,0 +1,234 @@
+@define-color icon #CACFDB;
+@define-color weather @module_bg_color;
+@define-color clock @module_bg_color;
+@define-color worksp @module_bg_color;
+@define-color backlight @module_bg_color;
+@define-color audio @module_bg_color;
+@define-color network @module_bg_color;
+@define-color bluetooth @module_bg_color;
+@define-color cpu @module_bg_color;
+@define-color ram @module_bg_color;
+@define-color temp @module_bg_color;
+@define-color battery @module_bg_color;
+@define-color storage @module_bg_color;
+
+@define-color bar_color transparent;
+@define-color text_color #605A52;
+@define-color border_color #000000;
+@define-color module_bg_color #F7F3EE;
+@define-color worksp_bg_color @module_bg_color;
+@define-color worksp_btn_color #8FAEAD;
+@define-color worksp_active_color #6B9494;
+@define-color worksp_hover_color #C6D4D3;
+@define-color worksp_urgent_color #8F5652;
+
+/* --------------- */
+/* define bar rule */
+/* --------------- */ 
+
+.modules-left,
+.modules-center,
+.modules-right {
+  margin: 0; /* top right bottom left */
+}
+
+window#waybar {
+  font: 14px "Mononoki Nerd Font";
+  background-color: @bar_color;
+  color: @text_color;
+}
+
+window#waybar > box {
+  /* background-color: @bar_color; */
+  margin: 4px 8px 0; 
+}
+
+/* style for tooltip on hover on module */
+tooltip {
+  font: 14px "Mononoki Nerd Font";
+}
+
+tooltip > box {
+  border-radius: 2px;
+}
+
+tooltip > label {
+  font-size: 14px;
+}
+/* style for tooltip on hover on module */
+
+/* --------------------------------- */ 
+/* style that apply for most modules */
+/* --------------------------------- */
+
+#custom-icon,
+#custom-weather,
+#clock,
+#workspaces,
+#backlight,
+#pulseaudio,
+#wireplumber,
+#network,
+#bluetooth,
+#cpu,
+#memory,
+#temperature,
+#battery,
+#disk {
+  border-radius: 2px;
+}
+
+#custom-icon,
+#custom-weather,
+#clock,
+#backlight,
+#pulseaudio,
+#wireplumber,
+#network,
+#bluetooth,
+#cpu,
+#memory,
+#temperature,
+#battery,
+#disk {
+  color: @text_color;
+  padding: 2px 5px;
+}
+
+/* ------------------------------ */
+/* style only modules on the left */
+/* ------------------------------ */ 
+
+#custom-icon {
+  background-color: @icon;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* custom menu from gtk */
+menu {
+  background: #4A505C;
+  border-radius: 2px;
+  color: @text_color;
+  padding: 0;
+}
+
+menuitem:hover {
+  background-color: #8D9F9D;
+  font-style: italic;
+}
+/* custom menu from gtk */
+
+#custom-weather {
+  background-color: @weather;
+  border-radius: 0;
+}
+
+#clock {
+  background-color: @clock;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* ---------------------------- */
+/* style only modules in middle */
+/* ---------------------------- */
+
+button:hover {
+  background: none;
+}
+
+#workspaces {
+  background-color: @worksp_bg_color;
+}
+
+#workspaces > button {
+  box-shadow: none;
+  border: none;
+  color: @worksp_btn_color;
+  padding: 0 5px;
+  text-shadow: none;
+}
+
+#workspaces > button:hover {
+  border-radius: 2px;
+  transition: none;
+}
+
+#workspaces > button.active {
+  color: @worksp_active_color;
+}
+
+/* #workspaces > button.active:hover {
+  background-color: @worksp_hover_color;
+} */
+
+/* #workspaces button.focused {
+}
+
+#workspaces button.focused:hover {
+} */
+
+#workspaces > button.urgent {
+  background-color: @worksp_urgent_color;
+}
+
+/* ------------------------------- */
+/* style only modules on the right */
+/* ------------------------------- */ 
+
+#backlight {
+  background-color: @backlight;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#pulseaudio,
+#wireplumber {
+  background-color: @audio;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+#network {
+  background-color: @network;
+  margin: 0 0 0 5px;
+}
+
+#cpu {
+  background-color: @cpu;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#memory {
+  background-color: @ram;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+#temperature {
+  background-color: @temp;
+}
+
+#battery {
+  background-color: @battery;
+  margin: 0 0 0 5px;
+}
+
+#battery.warning {
+  color: #D97C73;
+}
+
+#battery.critical {
+  color: #FB191A;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: @text_color;
+}
+
+#disk {
+  background-color: @storage;
+}

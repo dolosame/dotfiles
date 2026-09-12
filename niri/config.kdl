@@ -1,0 +1,27 @@
+include "startup.kdl"
+include "bind_actions.kdl"
+include "bind_customs.kdl"
+include "inputs.kdl"
+include "outputs.kdl"
+include "rules.kdl"
+include "layout.kdl"
+
+cursor {
+    xcursor-theme "Patchouli-cursors"
+    xcursor-size 32
+    hide-when-typing
+}
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+gestures {
+    hot-corners {
+        off
+    }
+}
+
+prefer-no-csd
+
+screenshot-path "~/Pictures/screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"

@@ -1,0 +1,173 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+
+
+  "logo": {
+    "type": "file",
+    "source": "${HOME}/.config/fastfetch/ascii-art/*.txt",
+    "padding": {
+      "top": 1,
+      "left": 0,
+      "right": 2
+    },
+    "position": "left",
+    "color": {
+      "1": "#886A44"
+    }
+  },
+
+  "display": {
+    "separator": " ",
+    "constants": [
+      "\u001b[35m──────────────────────",
+      "\u001b[37m🭵\u001b[0m" 
+    ],
+    "key": {
+      "type": "string",
+      "paddingLeft": 1
+    },
+    "color": {
+      "separator": "blue"
+    }
+  },
+
+  "modules": [
+    "break",
+    {
+      "type": "custom",
+      "format": " \u001b[35m System Information"
+    },
+    {
+      "type": "custom",
+      "format": "{$1}"
+    },
+
+    {
+      "type": "custom",
+      "format": " 󰌢 Operating System"
+    },
+    {
+      "type": "os",
+      "format": "\u001b[37m{pretty-name} {arch}",
+      "key": "{$2} \u001b[37m  Distro "
+    },
+    {
+      "type": "kernel",
+      "format": "\u001b[32m{sysname} {release}",
+      "key": "{$2} \u001b[32m  Kernel "
+    },
+    {
+      "type": "packages",
+      "key": "{$2} \u001b[35m  Packages ",
+      "outputColor": "magenta"
+    },
+    {
+      "type": "command",
+      "format": "\u001b[37m{result}",
+      "key": "{$2} \u001b[37m󰃭  OS Age ",
+      "text": "echo \"$(( ($(date +%s) - $(stat -c %W /)) / 86400 )) days\""
+    },
+
+    {
+      "type": "custom",
+      "format": "  Hardware"
+    },
+
+    /*
+    {
+      "type": "monitor",
+      "format": "\u001b[36m{name} {inch}\" {width}x{height} @ {refresh-rate}Hz {ppi}PPI",
+      "key": "{$2} \u001b[36m󰹑  Res "
+    },
+
+    {
+      "type": "bios",
+      "format": "\u001b[31m{version} [{type}]",
+      "key": "{$2} \u001b[31m⚙  BIOS "
+    },
+    */
+
+    {
+      "type": "cpu",
+      "format": "\u001b[33m{name} <{cores-physical}/{cores-logical}> cores",
+      "key": "{$2} \u001b[33m󰍛  Cpu "
+    },
+    {
+      "type": "gpu",
+      "format": "\u001b[32m {name} [{type}]",
+      "key": "{$2} \u001b[32m󰾲  Gpu "
+    },
+    {
+      "type": "memory",
+      "format": "\u001b[35m{used} / {total} ({percentage}\u001b[35m)",
+      "key": "{$2} \u001b[35m  Ram "
+    },
+    {
+      "type": "disk",
+      "format": "\u001b[37m{size-used} / {size-total} ({size-percentage}\u001b[97m) <{filesystem}>",
+      "key": "{$2} \u001b[37m  Disk "
+    },
+
+    {
+      "type": "custom",
+      "format": "  Current Session"
+    },
+    {
+      "type": "users",
+      "format": "\u001b[34m<{name}> at ({session-name}) {login-time}",
+      "key": "{$2} \u001b[34m  User "
+    },
+    {
+      "type": "shell",
+      "format": "\u001b[36m{pretty-name} {version}",
+      "key": "{$2} \u001b[36m󱆃  Shell "
+    },
+    {
+      "type": "uptime",
+      "format": "\u001b[33m{hours} hours, {minutes} mins",
+      "key": "{$2} \u001b[33m  Uptime "
+    },
+
+    /*
+    {
+      "type": "localip",
+      "format": "\u001b[37m({ifname}) {ipv4}",
+      "key": "{$2} \u001b[37m󰩠  Ip "
+    },
+    */
+
+    {
+      "type": "custom",
+      "format": " ◲ Desktop Environment"
+    },
+    {
+      "type": "wm",
+      "format": "\u001b[32m{pretty-name} [{protocol-name}]",
+      "key": "{$2} \u001b[32m  Wm "
+    },
+    {
+      "type": "terminal",
+      "format": "\u001b[34m{pretty-name} {version}",
+      "key": "{$2} \u001b[34m  Terminal "
+    },
+    {
+      "type": "terminalfont",
+      "format": "\u001b[31m{combined}",
+      "key": "{$2} \u001b[31m  Font "
+    },
+    {
+      "type": "cursor",
+      "format": "\u001b[37m{$XCURSOR_THEME} ({size}px)",
+      "key": "{$2} \u001b[37m  Cursor "
+    },
+    {
+       "type": "custom",
+       "format": "{$1}"
+    },
+    {
+      "type": "colors",
+      "paddingLeft": 2,
+      "symbol": "circle"
+    }
+  ]
+}

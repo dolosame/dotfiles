@@ -1,0 +1,139 @@
+"$schema" = "https://starship.rs/config-schema.json"
+
+add_newline = true
+continuation_prompt = '[▹ ](bold white)'
+
+format = """
+[░▒▓](#A3AED2)\
+$shell\
+$shlvl\
+[](bg:#769FF0 fg:#A3AED2)\
+$directory\
+[](bg:#394260 fg:#769FF0)\
+$git_branch\
+$git_commit\
+$git_status\
+$git_state\
+[](bg:#212736 fg:#394260)\
+$time\
+[](fg:#1D2230)\
+$fill\
+[](fg:#1D2230)\
+$status\
+$cmd_duration\
+[](bg:#090C0C fg:#A3AED2)\
+$username\
+$hostname\
+[▓▒░](#A3AED2)\
+\n$character"""
+
+[fill]
+symbol = ' '
+
+[username]
+format = '[ $user@]($style)'
+style_user = 'bg:#a3aed2 fg:#090c0c'
+style_root = 'bg:#a3aed2 fg:#090c0c'
+show_always = true
+
+[hostname]
+format = '[[$hostname ](bg:#A3AED2 fg:#090C0C)]($style)'
+disabled = false
+ssh_only = false
+style = 'bg:#212736 fg:#769FF0'
+
+[directory]
+format = '[ $path ]($style)'
+style = 'bg:#769FF0 fg:#E3E5E5'
+truncation_length = 3
+truncation_symbol = '…/'
+
+[directory.substitutions]
+"Documents" = '󰈙'
+"Downloads" = ''
+"Music" = ''
+"Pictures" = ''
+"Source" = '󰲋'
+"Videos" = ''
+"Desktop" = ''
+
+[git_branch]
+always_show_remote = true
+format = '[ $symbol]($style)'
+style = 'bg:#394260 fg:#769FF0'
+symbol = ' $branch'
+
+[git_commit]
+format = '[ \($hash\)]($style)'
+style = 'bg:#394260 fg:#769FF0'
+
+[git_status]
+format = '[ $all_status$ahead_behind]($style)'
+style = 'bg:#394260 fg:#769FF0'
+use_git_executable = true
+
+conflicted = '='
+stashed = '[$ ](bg:#394260 fg:#26C6DA)'
+deleted = '[✘ ](bg:#394260 fg:#EF5350)'
+renamed = '[» ](bg:#394260 fg:#FFB74D)'
+modified = '[! ](bg:#394260 fg:#FFEE58)'
+typechanged = '[. ](bg:#394260 fg:#B0BEC5)'
+staged = '[+ ](bg:#394260 fg:#66BB6A)'
+untracked = '[? ](bg:#394260 fg:#BA68C8)'
+
+ahead = '[⇡${count}](bg:#394260 fg:#81C784) '
+behind = '[⇣${count}](bg:#394260 fg:#E57373) '
+diverged = '[⇡${ahead_count}/⇣${behind_count}](bg:#394260 fg:#F06292) '
+
+[git_state]
+format = '[$state $progress_current/$progress_total ]($style)'
+style = 'bg:#394260 fg:#769FF0'
+
+rebase = '[Rebase](bg:#394260 fg:#FFA07A)'
+merge = '[Merge](bg:#394260 fg:#FFA07A)'
+revert = '[Revert](bg:#394260 fg:#FFA07A)'
+cherry_pick = '[Cherry-p](bg:#394260 fg:#FFA07A)'
+bisect = '[Bisect](bg:#394260 fg:#FFA07A)'
+
+[shell]
+bash_indicator = ' bsh'
+fish_indicator = '󰈺 fsh'
+powershell_indicator = ' psh'
+zsh_indicator = '󰬡 zsh'
+format = '[ $indicator ]($style)'
+disabled = false
+style = 'bg:#A3AED2 fg:#090C0C'
+
+[shlvl]
+disabled = false
+format = '[lv.$shlvl ]($style)'
+threshold = 2
+style = 'bg:#A3AED2 fg:#090C0C'
+
+[status]
+format = '[$symbol]($style)'
+disabled = false
+map_symbol = true
+style = 'bg:#1D2230'
+symbol = ' [✘](bg:#1D2230 bold #F7768E) '
+success_symbol = ' [✔](bg:#1D2230 bold #73DACA) '
+sigint_symbol = ' [](bg:#1D2230 bold #E0AF68) '
+signal_symbol = ' [](bg:#1D2230 bold #7AA2F7) '
+not_executable_symbol = ' [󱏎](bg:#1D2230 bold #BB9AF7) '
+not_found_symbol = ' [󰱼](bg:#1D2230 bold #7DCFFF) '
+
+[cmd_duration]
+format = '[took [$duration]($style bold #E0Af68) ]($style)'
+min_time = 5_000
+style = 'bg:#1D2230 fg:#A0A9CB'
+
+[time]
+disabled = false
+format = '[[ 󰅐 $time ](bg:#212736 fg:#A0A9CB)]($style)'
+time_format = '%R'
+style = 'bg:#212736 fg:#769FF0'
+
+[character]
+format = '$symbol'
+success_symbol = '[▸ ](bold #73DACA)'
+error_symbol = '[▸ ](bold #F7768E)'

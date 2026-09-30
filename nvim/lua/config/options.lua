@@ -17,9 +17,6 @@ o.softtabstop = 2 -- How many space act as a tab
 o.expandtab = true -- Use space instead of tab
 o.shiftwidth = 2 -- Indent width
 
--- Grep
-o.grepformat = '%f:%l:%c:%m' -- File name, line number, column, content
-
 -- Visual settings
 o.list = true -- Always render characters
 o.listchars = { tab = '󰌒 ', trail = '·', nbsp = '␣' }
@@ -46,4 +43,3 @@ end
 o.iskeyword:append('-') -- Treat dash as part of a word
 o.path:append('**') -- Search into subfolders with `gf`
 o.clipboard:append('unnamedplus') -- Use system clipboard
-o.wildignorecase = true -- Case-insensitive tab completion in commands

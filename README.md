@@ -55,7 +55,7 @@ just rename them and move to their folder to use them.
 scripts/  
 shell scripts as desktop replacement that i made for myself.
 
-swaylock/ + wlogout/  
+swaylock/ + fuzzel/  
 one is for styling session lock, another is for styling logout menu for when using keybind.
 
 xdg-desktop-portal/  
@@ -71,7 +71,7 @@ Bare minimal usable:
 Full set up:
 ```
 brightnessctl fastfetch fuzzel i3bar-river i3status-rust \
-kitty mako neovim niri starship swaybg swayidle swaylock wlogout
+kitty mako neovim niri starship swaybg swayidle swaylock
 ```
 
 ## Dependency tree

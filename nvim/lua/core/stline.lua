@@ -1,6 +1,6 @@
-vim.api.nvim_set_hl(0, 'StlMode', { link = 'CurSearch', default = true })
-vim.api.nvim_set_hl(0, 'StlGit',  { link = 'StatusLineNC', default = true })
-vim.api.nvim_set_hl(0, 'StlNum',  { link = 'CurSearch', default = true })
+vim.api.nvim_set_hl(0, 'ModeColor', { link = 'CurSearch', default = true })
+vim.api.nvim_set_hl(0, 'GitColor',  { link = 'PmenuSel', default = true })
+vim.api.nvim_set_hl(0, 'NumColor',  { link = 'CurSearch', default = true })
 
 local modes = {
   n       = 'NORMAL',
@@ -18,7 +18,7 @@ local modes = {
 
 function _G._statusline()
   local mode = modes[vim.fn.mode()] or vim.fn.mode():upper()
-  local branch = vim.b.git_branch and '%#StlGit#  ' .. vim.b.git_branch .. ' %*' or ''
+  local branch = vim.b.git_branch and '%#GitColor#  ' .. vim.b.git_branch .. ' %*' or ''
   local path = vim.b.rel_path or '%f'
 
   local diag = ''
@@ -32,7 +32,7 @@ function _G._statusline()
     end
   end
 
-  return '%#StlMode# ' .. mode .. ' %*' .. branch .. ' ' .. path .. '%=' .. diag .. vim.bo.fileencoding .. ' %#StlNum# %l:%c %*'
+  return '%#ModeColor# ' .. mode .. ' %*' .. branch .. ' ' .. path .. '%=' .. diag .. vim.bo.fileencoding .. ' %#NumColor# %l:%c %*'
 end
 
 vim.api.nvim_create_autocmd('BufEnter', {

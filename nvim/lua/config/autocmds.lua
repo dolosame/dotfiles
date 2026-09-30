@@ -20,3 +20,18 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.hl.on_yank()
   end,
 })
+
+-- Don't contiue to add comments when press o/O or enter down a line
+vim.api.nvim_create_autocmd('BufEnter', {
+  group = vim.api.nvim_create_augroup('FormatOptions', { clear = true }),
+  pattern = '*',
+  callback = function ()
+    vim.opt_local.formatoptions:remove({ 'r', 'o' })
+  end,
+})
+
+-- Remove trailing whitespace on save
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = '*',
+  command = '%s/\\s\\+$//e',
+})

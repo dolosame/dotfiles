@@ -14,9 +14,11 @@ vim.diagnostic.config({
     prefix = '',
     format = function(diagnostic)
       local maxlen = 80
+
       if #diagnostic.message > maxlen then
         return string.sub(diagnostic.message, 1, maxlen) .. '...'
       end
+
       return diagnostic.message
     end
   },
@@ -52,6 +54,8 @@ vim.keymap.set('n', '<leader>d', function()
   vim.diagnostic.setqflist()
   vim.cmd('copen')
 end, { silent = true })
+
+-- OLD CONFIG BELOW NOT SURE IF TO REMOVE IT SINCE NEOVIM LSP API ARE CHANGING
 
 -- LSP attach keymaps (good compatible with blink.nvim)
 -- local lsp_highlight_group = vim.api.nvim_create_augroup('lsp-highlight', { clear = true })

@@ -16,6 +16,14 @@ local modes = {
   ["\19"] = 'S-BLOCK',
 }
 
+local function file_state()
+  local flags = {}
+  if not vim.bo.modifiable then table.insert(flags, '-') end
+  if vim.bo.modified then table.insert(flags, '*') end
+  if vim.bo.readonly then table.insert(flags, '#') end
+  return table.concat(flags, '')
+end
+
 function _G._statusline()
   local mode = modes[vim.fn.mode()] or vim.fn.mode():upper()
   local branch = vim.b.git_branch and '%#GitColor#  ' .. vim.b.git_branch .. ' %*' or ''
@@ -32,7 +40,7 @@ function _G._statusline()
     end
   end
 
-  return '%#ModeColor# ' .. mode .. ' %*' .. branch .. ' ' .. path .. '%=' .. diag .. vim.bo.fileencoding .. ' %#NumColor# %l:%c %*'
+  return '%#ModeColor# ' .. mode .. ' %*' .. branch .. ' ' .. path .. file_state() .. '%=' .. diag .. vim.bo.fileencoding .. ' %#NumColor# %l:%c %*'
 end
 
 vim.api.nvim_create_autocmd('BufEnter', {

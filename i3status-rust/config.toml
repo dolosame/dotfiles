@@ -1,3 +1,6 @@
+[theme.overrides]
+separator = "|"
+
 [[block]]
 block = "tea_timer"
 format = " $icon {$minutes:$seconds |}"
@@ -28,7 +31,7 @@ interval = 60
 [[block]]
 block = "battery"
 driver = "sysfs"
-format = " $icon $percentage $power "
-charging_format =  " $icon $percentage $power "
-not_charging_format = " PLUG " 
+format = " $icon $percentage $power⇣ "
+charging_format =  " $icon $percentage $power⇡ "
+not_charging_format = " PLUG "
 interval = 10

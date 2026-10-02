@@ -1,7 +1,7 @@
 # My own Void Linux dotfiles
 
-This is my git repo storing dotfiles handmade by me throughout using linux over time in
-which in my opinion is the most minimal rice in my eyes.
+This is my git repo storing dotfiles handmade by me throughout using linux over time, in
+my opinion is the most minimal rice in my eyes.
 
 I also like to script myself some of the desktop utils since i don't like downloading
 extra packages, while at it i also make them easily readable and hackable so you can
@@ -14,52 +14,53 @@ change them whenever you want as you like.
 
 ## Directory meaning
 
-bash/  
+bash/\
 all thing relate to bash like settings, custom aliases/functions, all file name
 are end with .bash extension and source at ~/.bashrc file.
 
-fastfetch/  
+fastfetch/\
 my own fastfetch config style for my system
-(no you not gonna get these asset images on the left of fastfetch when this rice upload).
+(no you not gonna get those images on the left side of fastfetch when this rice upload).
 
-fcitx5/  
+fcitx5/\
 input method engine to help type different characters when i needed for multilingual person like me
 (i may did insulted some monolingual like you).
 
-fuzzel/  
-dmenu like that is hackable, made by foot terminal creator.
+fuzzel/\
+dmenu like, that is hackable made by foot terminal dev.
 
-git/  
+git/\
 my own git config (do change the email and ssh key location on your system).
 
-i3bar-river/ + i3status-rust/  
+i3bar-river/ + i3status-rust/\
 they compliment with each other to make up the bar.
 
-kitty/  
-config for the kitty terminal (best terminal in my opinion and can be like tmux).
+kitty/\
+config for the kitty terminal (best terminal in my opinion have many QOL which
+i am still learning how to use it and can be like tmux).
 
-mako/  
-style your notification info pop up.
+mako/\
+style your notification info pop up, very minimalist.
 
-niri/  
+niri/\
 rust scrolling tiling window manager (the scrolling is peak on laptop)
 and the update cycle is better than hyprland breaking your system.
 
-nvim/  
+nvim/\
 neovim > vscode do i need to say more?.
 
-old_rice/  
-legacy rice from oldware i have used like waybar (eww gtk), or old fastfetch config that i like, 
-just rename them and move to their folder to use them.
+old_rice/\
+legacy rice from oldware i have used like waybar (i don't like gtk depend much), or old
+fastfetch config that i like, just rename them and move to their folder to use them.
 
-scripts/  
+scripts/\
 shell scripts as desktop replacement that i made for myself.
 
-swaylock/ + fuzzel/  
+swaylock/ + fuzzel/\
 one is for styling session lock, another is for styling logout menu for when using keybind.
 
-xdg-desktop-portal/  
-setting default niri to use firefox file picker and screen cast portals.
+xdg-desktop-portal/\
+setting default to make browser file picker and screen cast portals.
 
 ## Packages using
 
@@ -78,39 +79,39 @@ kitty mako neovim niri starship swaybg swayidle swaylock
 
 ```
 .config/niri/startup.kdl
-|\.config/scripts/wayland_start.sh
-|  |\libnotify
-|  |\swaybg
-|  |\swayidle
-|  | \swaylock
-|  |  \loginctl
-|   \pipewire
-|    \i3bar-river
-|     \i3status-rust
- \.config/scripts/battery_monitor.sh
-  \libnotify
+|- .config/scripts/wayland_start.sh
+|  |- libnotify
+|  |- swaybg
+|  |- swayidle
+|  |  swaylock
+|  |  \- loginctl
+|  |- pipewire
+|     \- i3bar-river
+|        \- i3status-rust
+|- .config/scripts/battery_monitor.sh
+   \- libnotify
 
 .config/niri/bind_custom.kdl
-|\kitty
-|\fuzzel
-|\swaylock
-|\wpctl
-|\playerctl
-|\brightnessctl
+|- kitty
+|- fuzzel
+|- swaylock
+|- wpctl
+|- playerctl
+|- brightnessctl
 |
-|\kitty
-| \bc
-|\.config/scripts/fuzzel_logout.sh
-|  |\fuzzel
-|  |\loginctl
-|\.config/scripts/fuzzel_bg_picker.sh
-|  |\fuzzel
-|  |\swaybg
-|  |\libnotify
- \wl-copy
+|- kitty
+|  \- bc
+|- .config/scripts/fuzzel_logout.sh
+|  |- fuzzel
+|  \- loginctl
+|- .config/scripts/fuzzel_bg_picker.sh
+|  |- fuzzel
+|  |- swaybg
+|  |- libnotify
+|- wl-copy
 
 .config/starship.toml
- \.config/scripts/starship_char.sh
+|- .config/scripts/starship_char.sh
 ```
 
 ## My neovim folders
@@ -135,6 +136,8 @@ lua/config:
 |- options.lua
 
 lua/core:
+|- find.lua
+|- grep.lua
 |- lazy.lua
 |- lsp.lua
 |- stline.lua

@@ -107,7 +107,7 @@ svdisable() {
   local services_dir="/etc/sv"
 
   for service in "$@"; do
-    if [ -d "$services_dir/$service" ]; then doas sv down "$@" && doas rm -i "/var/service/$service";
+    if [ -d "$services_dir/$service" ]; then doas rm -i "/var/service/$service";
     else echo "Can't find service name $service"; fi
   done
 }

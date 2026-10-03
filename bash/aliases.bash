@@ -30,6 +30,7 @@ alias chgrp='chgrp --preserve-root'
 alias c='clear'
 alias h='history'
 alias q='exit'
+alias v='nvim'
 
 alias ip='ip -c'
 alias ports='ss -tulanp'

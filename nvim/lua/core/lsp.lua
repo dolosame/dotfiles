@@ -42,18 +42,34 @@ vim.diagnostic.config({
   },
 })
 
--- Show diagnostic on cursor
-vim.api.nvim_create_autocmd('CursorHold', {
-  callback = function()
-    vim.diagnostic.open_float()
-  end
-})
+-- Show diagnostic doc
+vim.keymap.set('n', 'K', function()
+  vim.lsp.buf.hover({ border = 'rounded' })
+end, { desc = "LSP hover with border" })
 
 -- Show diagnostic list
 vim.keymap.set('n', '<leader>d', function()
   vim.diagnostic.setqflist()
   vim.cmd('copen')
 end, { silent = true })
+
+-- Show diagnostic on cursor
+vim.api.nvim_create_autocmd('CursorHold', {
+  callback = function()
+
+    for _, win in ipairs(vim.api.nvim_list_wins()) do
+      if vim.api.nvim_win_is_valid(win) then
+        local config = vim.api.nvim_win_get_config(win)
+
+        if config.relative ~= '' then
+          return
+        end
+      end
+    end
+
+    vim.diagnostic.open_float()
+  end
+})
 
 -- OLD CONFIG BELOW NOT SURE IF TO REMOVE IT SINCE NEOVIM LSP API ARE CHANGING
 

@@ -25,6 +25,7 @@ binds {
     XF86AudioPrev         allow-when-locked=true { spawn-sh "playerctl previous"; }
     XF86AudioNext         allow-when-locked=true { spawn-sh "playerctl next"; }
 
+    Alt+B { spawn-sh "pkill -SIGUSR1 i3bar-river"; }
     Ctrl+Alt+Delete { spawn-sh "${HOME}/.config/scripts/fuzzel_logout.sh"; }
 
     Mod+E          hotkey-overlay-title="Set dynamic cast window"           { spawn-sh "niri msg action set-dynamic-cast-window"; }

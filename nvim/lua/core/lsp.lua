@@ -45,7 +45,10 @@ vim.diagnostic.config({
 -- Show diagnostic doc
 vim.keymap.set('n', 'K', function()
   vim.lsp.buf.hover({ border = 'rounded' })
-end, { desc = "LSP hover with border" })
+end, { desc = "floating lsp document" })
+
+-- Rename all same variables naming
+vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { desc = 'rename same variables naming' })
 
 -- Show diagnostic list
 vim.keymap.set('n', '<leader>d', function()

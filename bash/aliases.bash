@@ -43,6 +43,7 @@ alias path='echo -e ${PATH//:/\\n}'
 alias icat='kitten icat'
 alias lskernel='vkpurge list'
 alias clrkernel='doas vkpurge rm all'
+alias trim='doas fstrim -av'
 alias fuck='doas $(fc -ln -1)'
 
 alias cfg='cd ~/.config'

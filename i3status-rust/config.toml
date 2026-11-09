@@ -17,6 +17,12 @@ driver = "auto"
 format = " $icon {$volume |}"
 
 [[block]]
+block = "sound"
+driver = "auto"
+format = " $icon {$volume |}"
+device_kind = "source"
+
+[[block]]
 block = "net"
 device = "wlp2s0"
 format = " ⇣$speed_down ⇡$speed_up "

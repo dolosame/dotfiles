@@ -17,7 +17,7 @@ key() {
   local key="$1"
 
   if [ -z "${1:-}" ]; then
-    echo "No key specify"
+    echo "No key specify. You have to have a key at ~/.ssh/"
     return 1
   fi
 

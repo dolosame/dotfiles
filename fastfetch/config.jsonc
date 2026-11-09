@@ -9,16 +9,24 @@
       "left": 0,
       "right": 2
     },
-    "position": "left",
-    "color": {
-      "1": "#886A44"
-    }
+    "position": "left"
   },
 
   "display": {
-    "separator": "",
+    "disableLinewrap": true,
+    "duration": {
+      "abbreviation": false
+    },
     "key": {
       "type": "none"
+    },
+    "percent": {
+      "type": 1,
+      "color": {
+        "green": "40",
+        "yellow": "60",
+        "red": "80"
+      }
     }
   },
 
@@ -34,7 +42,7 @@
     },
     {
       "type": "os",
-      "format": "                        {pretty-name} \u001b[31m{arch}\u001b[0m"
+      "format": "                       {pretty-name} \u001b[31m{arch}\u001b[0m"
     },
     {
       "type": "kernel",
@@ -42,7 +50,7 @@
     },
     {
       "type": "packages",
-      "format": "                   \u001b[31mpackages\u001b[0m {xbps} (xbps)"
+      "format": "                   \u001b[31mpackages\u001b[0m {all} book(s)"
     },
     {
       "type": "command",
@@ -59,7 +67,8 @@
     },
     {
       "type": "gpu",
-      "format": "      \u001b[33mgpu\u001b[0m {name}   ⠄⠄⠂⠁⠁⠂⠄⠄"
+      "format": "      \u001b[33mgpu\u001b[0m {name}   ⠄⠄⠂⠁⠁⠂⠄⠄",
+      "driverSpecific": true
     },
     {
       "type": "memory",
@@ -67,7 +76,12 @@
     },
     {
       "type": "disk",
-      "format": "  \u001b[33mdisk\u001b[0m {size-used} / {size-total} (\u001b[97m{size-percentage}\u001b[0m) - \u001b[31m{filesystem}\u001b[0m"
+      "format": "  \u001b[33mdisk\u001b[0m {size-used} / {size-total} (\u001b[97m{size-percentage}\u001b[0m)  \u001b[31m{filesystem}\u001b[0m",
+      "percent": {
+        "green": "40",
+        "yellow": "60",
+        "red": "80"
+      }
     },
     {
       "type": "custom",
@@ -76,24 +90,25 @@
     "break",
     {
       "type": "custom",
-      "format": "\u001b[33mif\u001b[0m you are curious about my knowledge ..."
+      "format": "\u001b[33mif\u001b[0m you are curious about my \u001b[35mknowledge\u001b[0m ..."
     },
     "break",
     {
       "type": "users",
-      "format": "\u001b[31m{name}\u001b[0m is at (\u001b[32m{session-name}\u001b[0m) {login-time}"
+      "format": "\u001b[31m{name}\u001b[0m is at (\u001b[32m{session-name}\u001b[0m)",
+      "myselfOnly": true
+    },
+    {
+      "type": "wm",
+      "format": "\u001b[33mWM\u001b[0m {pretty-name} [\u001b[32m{protocol-name}\u001b[0m]"
+    },
+    {
+      "type": "uptime",
+      "format": "\u001b[33mUptime\u001b[0m {formatted}"
     },
     {
       "type": "shell",
       "format": "\u001b[33mShell\u001b[0m {pretty-name} {version}"
-    },
-    {
-      "type": "uptime",
-      "format": "\u001b[33mUptime\u001b[0m {hours} hours, {minutes} mins"
-    },
-        {
-      "type": "wm",
-      "format": "\u001b[33mWM\u001b[0m {pretty-name} [\u001b[32m{protocol-name}\u001b[0m]"
     },
     {
       "type": "terminal",

@@ -1,0 +1,48 @@
+{
+  "$schema": "https://raw.githubusercontent.com/fastfetch-cli/fastfetch/refs/heads/dev/doc/json_schema.json",
+  "logo": null,
+  "modules": [
+    {
+      "type": "battery"
+    },
+    {
+      "type": "bios"
+    },
+    {
+      "type": "board"
+    },
+    {
+      "type": "camera"
+    },
+    {
+      "type": "cpu"
+    },
+    {
+      "type": "display"
+    },
+    {
+      "type": "disk"
+    },
+    {
+      "type": "gpu"
+    },
+    {
+      "type": "host"
+    },
+    {
+      "type": "keyboard"
+    },
+    {
+      "type": "memory"
+    },
+    {
+      "type": "monitor"
+    },
+    {
+      "type": "physicaldisk"
+    },
+    {
+      "type": "physicalmemory"
+    }
+  ]
+}
